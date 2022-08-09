@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Yo Next.js! {process.env.NEXT_PUBLIC_REGION}</a>
+          Welcome to <a href="https://nextjs.org">Yo Next.js! {process.env.NEXT_PUBLIC_REGION} region</a>
         </h1>
 
         <p className={styles.description}>
