@@ -24,6 +24,8 @@ COPY . .
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
 # ENV NEXT_TELEMETRY_DISABLED 1
+ENV NEXT_PUBLIC_REGION=EU
+RUN echo ${_REGION}
 
 RUN yarn build
 
