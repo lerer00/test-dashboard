@@ -41,6 +41,14 @@ const Home: NextPage = () => {
         event.preventDefault();
     };
 
+    const test = () => {
+        fetch('/api/secure')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
+    }
+
     return (
         <div className={styles.container}>
             <main className={styles.main}>
@@ -50,31 +58,32 @@ const Home: NextPage = () => {
                      autoComplete="off">
                     {error && <Alert severity="error">{error}</Alert>}
                     <div>
-                    <TextField
-                        size="small"
-                        type="email"
-                        id="login-email"
-                        label="email"
-                        variant="outlined"
-                        placeholder="email"
-                        value={email}
-                        onChange={(event) => setEmail(event.target.value)}
-                    />
+                        <TextField
+                            size="small"
+                            type="email"
+                            id="login-email"
+                            label="email"
+                            variant="outlined"
+                            placeholder="email"
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                        />
                     </div>
                     <div>
-                    <TextField
-                        size="small"
-                        type="password"
-                        id="login-password"
-                        label="password"
-                        variant="outlined"
-                        placeholder="password"
-                        value={password}
-                        onChange={(event) => setPassword(event.target.value)}
-                    />
+                        <TextField
+                            size="small"
+                            type="password"
+                            id="login-password"
+                            label="password"
+                            variant="outlined"
+                            placeholder="password"
+                            value={password}
+                            onChange={(event) => setPassword(event.target.value)}
+                        />
                     </div>
 
                     <Button onClick={loginWithUsernamePassword}>Login</Button>
+                    <Button onClick={test}>test</Button>
                     No account? <Link href="/signup">Sign up</Link>
                 </Box>
                 <FormGroup row>

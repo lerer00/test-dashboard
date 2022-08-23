@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useRouter} from 'next/router';
 import {useAuth} from '../context/authContext';
 import {Box, Button, Container, LinearProgress} from "@mui/material";
@@ -13,6 +13,15 @@ const LoggedIn = () => {
             router.push('/')
     }, [user, loading])
 
+    const test = () => {
+        fetch('/api/secure')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            })
+    }
+
+
     return (
         <Container>
             {
@@ -26,6 +35,7 @@ const LoggedIn = () => {
                         </Box>
                         <Box>
                             <Button onClick={() => signOut()}>Sign out</Button>
+                            <Button onClick={test}>test</Button>
                         </Box>
                     </>
             }

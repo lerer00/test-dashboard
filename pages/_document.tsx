@@ -12,7 +12,6 @@ class MyDocument extends Document {
         return (
             <Html lang={'en'}>
                 <Head>
-                    <title>Auth base template</title>
                     <meta name="description" content="Auth base template"/>
                     <link rel="icon" href="/favicon.ico"/>
                 </Head>
