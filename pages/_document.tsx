@@ -10,12 +10,12 @@ class MyDocument extends Document {
 
     render() {
         return (
-            <Html lang={'en'}>
+            <Html className="h-full bg-gray-100" lang={'en'}>
                 <Head>
                     <meta name="description" content="Auth base template"/>
                     <link rel="icon" href="/favicon.ico"/>
                 </Head>
-                <body>
+                <body className="h-full">
                     <Main/>
                     <NextScript/>
                 </body>

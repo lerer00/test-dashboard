@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import firebase from './firebase';
 import nookies from 'nookies';
+import {useRouter} from "next/router";
 
 const formatUser = (user) => ({
     uid: user.uid,
@@ -10,6 +11,7 @@ const formatUser = (user) => ({
 export default function useFirebaseAuth() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const router = useRouter();
 
     const authStateChanged = async (authState) => {
         if (!authState) {
@@ -41,8 +43,10 @@ export default function useFirebaseAuth() {
     const signInWithRedirect = (provider) =>
         firebase.auth().signInWithRedirect(provider)
 
-    const signOut = () =>
+    const signOut = () => {
         firebase.auth().signOut().then(clear);
+        router.push('/')
+    }
 
     useEffect(() => {
         const unsubscribe = firebase.auth().onIdTokenChanged(authStateChanged);
